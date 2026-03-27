@@ -6,9 +6,17 @@ Everything in this template is pre-structured with descriptions and examples so 
 
 ---
 
-## Quick start — the 5 things to replace
+## Quick start
 
-Once you have the template set up (see the step-by-step guide below), you only need to update 5 things to make it yours:
+Once you have the template set up (see the step-by-step guide below), open Claude Code in VS Code and type:
+
+```
+/start
+```
+
+Claude will read the whole template, ask you plain-English questions about what you want to build, and fill in all the project documents for you automatically. No manual editing required.
+
+If you prefer to fill things in yourself, the 5 files to update are:
 
 1. **`docs/project_spec.md`** — describe your project instead of Dream Home Design
 2. **`docs/architecture.md`** — describe how your project is structured
@@ -146,29 +154,32 @@ git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT-NAME.git
 
 ---
 
-### Step 4 — Fill in the documents
-
-Start with `docs/project_spec.md`. Open it and replace the Dream Home Design example with your own project. Answer the questions in the file:
-
-- What is your product?
-- Who is it for?
-- What should it do?
-
-Then fill in `docs/architecture.md` with how you want the project to be structured. If you are not sure yet, leave the example in place and ask Claude to help you adapt it.
-
----
-
-### Step 5 — Start talking to Claude
+### Step 4 — Run /start
 
 Open Claude Code in VS Code (look for the Claude icon in the sidebar or press the keyboard shortcut shown after installation).
 
-Claude will read `CLAUDE.md` automatically and understand the context of your project. You can now give it instructions in plain English, for example:
+Type `/start` and press Enter. Claude will:
+
+1. Read the entire template silently
+2. Ask you what you want to build
+3. Interview you about your product, users, and requirements — one question at a time
+4. Ask about your preferred technology (or research and recommend one if you're unsure)
+5. Break your product into delivery phases: MVP, Version 1.0, Version 2.0+
+6. Write all the project documents for you automatically
+
+The whole interview takes around 5–10 minutes. When it's done, your project is set up and ready to build.
+
+---
+
+### Step 5 — Start building
+
+Once `/start` is complete, you can give Claude plain-English instructions to start building:
 
 > "Build the homepage described in the project spec."
 
 > "Run the pre-launch checklist skill."
 
-> "/add-project"
+> "Add a new feature to the spec: user notifications."
 
 ---
 
