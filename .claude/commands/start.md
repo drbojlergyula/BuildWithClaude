@@ -159,7 +159,7 @@ Update these files in order:
 
 5. **`docs/changelog.md`** — add the first entry: project initialized, date, summary of what was decided.
 
-6. **`CLAUDE.md`** — update the Overview section to describe the real product. Update the Claude Tools section to note which example tools apply, which need to be renamed, and which should be deleted.
+6. **`CLAUDE.md`** — update the Overview section to describe the real product. The tools section does not need changing — all tools apply to every project.
 
 After writing all files, tell the user what was updated and what they should review.
 
@@ -186,10 +186,22 @@ If the user identifies something, write a new tool file for it. Briefly explain 
 
 Confirm everything is done. Give the user a clear next step:
 
-> Your project spec is ready. Here is what to do next:
-> 1. Review `docs/project_spec.md` and `docs/architecture.md` — make sure everything looks right.
-> 2. If anything is wrong or missing, just tell me and I will update the files.
-> 3. When you are ready to start building, describe the first feature you want to work on.
+> Your project is set up. Here is how to move forward:
+>
+> **Right now:**
+> 1. Read through `docs/project_spec.md` — does it capture what you want to build?
+> 2. If anything is wrong or missing, tell me and I will update it.
+>
+> **Before you start building:**
+> 3. Ask me to "run the spec-reviewer agent" — it will check the spec for gaps before any code is written.
+>
+> **When you are ready to build:**
+> 4. Describe the first feature you want to work on in plain English and I will build it.
+>
+> **As you go:**
+> - Use `/new-feature` any time you want to add something new to the spec
+> - Use `/update-docs-and-commit` after finishing any piece of work
+> - Ask me to "run the project-advisor agent" any time you want a senior review of where things stand
 
 ---
 

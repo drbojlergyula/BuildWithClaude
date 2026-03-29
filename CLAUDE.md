@@ -50,7 +50,7 @@ Tools live in `.claude/` as plain-English text files. To create a new tool, add 
 ## Working conventions
 
 - **One task at a time.** Give Claude a single, specific instruction rather than a list. Results are better and easier to review.
-- **Be specific.** "Add a hero image with the studio name centred on top" is better than "make the homepage look nice."
+- **Be specific.** "Add a contact form with name, email, and message fields" is better than "add a way for people to get in touch."
 - **Ask for explanations.** If Claude does something you don't understand, ask: "Explain what you just did in plain English."
 - **Keep docs current.** The more accurate the spec and architecture are, the less context needs to be repeated across sessions.
 - **After major changes:** update `docs/changelog.md` and `docs/project_status.md`.
