@@ -138,7 +138,7 @@ Adjust based on feedback. Keep iterating until the user says the plan looks good
 
 ### Phase 5 — Write all project files
 
-Once the user approves the iteration plan, update all project files to reflect the real product. Replace every reference to "Dream Home Design" or the interior design example with the user's actual product.
+Once the user approves the iteration plan, update all project files to reflect the real product. Replace all example content with the user's actual product.
 
 Update these files in order:
 

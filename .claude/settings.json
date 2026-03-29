@@ -1,6 +1,11 @@
 {
   "permissions": {
+    // Tools Claude is always allowed to use in this project.
+    // Example: "allow": ["Bash(git *)", "Read", "Edit"]
     "allow": [],
+
+    // Tools Claude is never allowed to use in this project.
+    // Example: "deny": ["Bash(rm *)"]
     "deny": []
   }
 }

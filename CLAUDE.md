@@ -4,7 +4,7 @@ This file is read by Claude Code at the start of every session. It provides cont
 
 ## Overview
 
-This is a business-focused project template for building with Claude Code. It includes documentation templates and pre-built Claude tools — all using a Dream Home Design interior design website as the example to replace. Run `/start` to replace all example content with the user's real project.
+This is a business-focused project template for building with Claude Code. It includes documentation templates and pre-built Claude tools. All files are pre-filled with a generic working example. Run `/start` to replace all example content with the user's real project.
 
 ## Documentation
 
@@ -28,23 +28,24 @@ Tools live in `.claude/` as plain-English text files. To create a new tool, add 
 
 ### Commands (`.claude/commands/`)
 
-| Command | Description |
-|---|---|
-| `/start` | Interviews the user, populates all project docs, sets up the project from scratch |
-| `/new-feature` | Guided workflow for adding a new feature to the spec with user stories and version assignment |
-| `/update-docs-and-commit` | Updates changelog and project status to reflect recent work, then commits to git |
+| Command | When to use | Description |
+|---|---|---|
+| `/start` | Once, at the very beginning | Interviews the user, populates all project docs, sets up the project from scratch |
+| `/new-feature` | Any time you want to add something new | Guided workflow for adding a feature to the spec with user stories and version assignment |
+| `/update-docs-and-commit` | After finishing any piece of work | Updates changelog and project status to reflect recent work, then commits to git |
 
 ### Agents (`.claude/agents/`)
 
-| Agent | Description |
-|---|---|
-| `spec-reviewer` | Reviews the project spec for completeness, clarity, and gaps before building starts |
+| Agent | When to use | Description |
+|---|---|---|
+| `project-advisor` | After setup, after each phase, or when stuck | Senior advisor that reviews the whole project, surfaces blind spots, and recommends what to address next |
+| `spec-reviewer` | Before starting to build anything | Reviews the project spec for completeness, clarity, and gaps |
 
 ### Skills (`.claude/skills/`)
 
-| Skill | Description |
-|---|---|
-| `doc-sync-check` | Checks all project docs are consistent with each other and free of placeholder text |
+| Skill | When to use | Description |
+|---|---|---|
+| `doc-sync-check` | Any time docs feel out of date | Checks all project docs are consistent with each other and free of placeholder text |
 
 ## Working conventions
 

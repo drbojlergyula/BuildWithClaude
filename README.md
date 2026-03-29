@@ -39,11 +39,24 @@ Claude will interview you about what you want to build and fill in all the proje
 
 **5. Start building**
 
-Once `/start` is done, give Claude plain-English instructions:
+Once `/start` is done, give Claude plain-English instructions to start building:
 
-> "Build the homepage described in the project spec."
-> "Run the pre-launch checklist."
-> "Add a user notifications feature to the spec."
+> "Build the order form described in the project spec."
+> "Add a login page for the owner dashboard."
+
+---
+
+## How to work day to day
+
+Once your project is set up, the rhythm is simple:
+
+| When | What to do |
+|---|---|
+| Adding a new feature | Type `/new-feature` — Claude will ask what it does and add it to the spec |
+| After finishing something | Type `/update-docs-and-commit` — Claude updates the docs and saves your progress |
+| Feeling stuck or unsure | Ask Claude to "run the project-advisor agent" — it reviews everything and tells you what to focus on |
+| Spec feels incomplete | Ask Claude to "run the spec-reviewer agent" — it checks for gaps before you build |
+| Docs feel out of sync | Ask Claude to "run the doc-sync-check skill" — it finds inconsistencies and placeholders |
 
 ---
 
@@ -51,20 +64,26 @@ Once `/start` is done, give Claude plain-English instructions:
 
 ```
 BuildWithClaude/
-├── CLAUDE.md                        ← Instructions Claude reads every session
+├── CLAUDE.md                          ← Instructions Claude reads every session
 ├── docs/
-│   ├── project_spec.md              ← What you are building and why
-│   ├── architecture.md              ← How the project is structured
-│   ├── brainstorm.md                ← Scratchpad for ideas
-│   ├── project_status.md            ← Progress and milestones
-│   └── changelog.md                 ← History of changes
+│   ├── project_spec.md                ← What you are building and why
+│   ├── architecture.md                ← How the project is structured
+│   ├── brainstorm.md                  ← Scratchpad for ideas
+│   ├── project_status.md              ← Progress and milestones
+│   └── changelog.md                   ← History of changes
 └── .claude/
-    ├── agents/                      ← Specialist Claude personas
-    ├── commands/                    ← Shortcut tasks (e.g. /start, /add-project)
-    └── skills/                      ← Repeatable checklists
+    ├── agents/
+    │   ├── project-advisor.md         ← Reviews the whole project for blind spots
+    │   └── spec-reviewer.md           ← Checks the spec is complete before building
+    ├── commands/
+    │   ├── start.md                   ← /start — sets up a new project from scratch
+    │   ├── new-feature.md             ← /new-feature — adds a feature to the spec
+    │   └── update-docs-and-commit.md  ← /update-docs-and-commit — saves progress
+    └── skills/
+        └── doc-sync-check/            ← Checks all docs are consistent
 ```
 
-All files are pre-filled with a working example (a fictional interior design studio). `/start` replaces all of it with your actual project.
+All files are pre-filled with a working example. `/start` replaces everything with your actual project.
 
 ---
 
