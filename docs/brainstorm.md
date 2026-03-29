@@ -12,35 +12,44 @@ Use it to think through a feature, weigh options, and settle on an approach. Onc
 2. **Explore it** — list options, pros/cons, open questions
 3. **Decide** — mark the chosen direction
 4. **Promote** — copy the decision into `project_spec.md` under the right section
-5. **Clear it** — remove or move the entry to the Archive section at the bottom
+5. **Clear it** — move it to the Archive section below
 
 ---
 
 ## Active Ideas
 
-<!-- Add ideas here. One H3 per idea. Example below — delete when you add your own. -->
+<!-- Add ideas here. One H3 heading per idea.
+     Example below — delete when you add your own. -->
 
-### Booking / Enquiry Flow *(example — delete when you start)*
+### User notifications *(example — delete when you start)*
 
 **The idea:**
-Instead of a simple contact form, add a proper enquiry flow where potential clients can describe their project type (apartment, house, office), set a rough budget range, and pick a preferred time to be called back.
+When a new order comes in, automatically notify the owner rather than them having to check the dashboard manually.
 
 **Options considered:**
 
 | Option | Pros | Cons |
 |---|---|---|
-| Simple contact form (current) | Fast to build, low friction | Studio gets vague enquiries, wastes time on calls |
-| Multi-step enquiry form | Filters serious leads, saves studio time | More complex to build, may reduce submissions |
-| Calendly embed for booking | Zero backend work, professional feel | Requires paid plan, less on-brand |
+| Email notification on each submission | Simple, no extra service needed | Can get noisy with high volume |
+| Daily digest email | Less noise | Owner might miss urgent orders |
+| SMS via Twilio | Instant, hard to miss | Costs money, extra integration |
 
 **Open questions:**
-- Does the studio want to filter leads at this stage, or do they prefer to talk to everyone first?
-- Is a callback time picker important, or is "we'll be in touch within 24h" good enough for MVP?
+- How many orders per day is the owner expecting?
+- Does "immediately" matter, or is checking once a day enough for now?
 
-**Decision:** *(not decided yet — discuss with client before adding to project_spec.md)*
+**Decision:** *(not decided yet — ask the owner before adding to spec)*
 
 ---
 
 ## Archive
 
-<!-- Move resolved ideas here once they've been promoted to project_spec.md. -->
+<!-- Move resolved ideas here once they have been added to project_spec.md. -->
+
+### Order status labels *(example resolved idea)*
+
+**Decision:** Keep it simple — two statuses only: **New** and **Handled**. No "In Progress" or custom labels for now.
+
+**Why:** Adding more statuses adds complexity to the dashboard filter and the database schema. If the owner needs more granularity later, it can be added in v2.
+
+**Added to spec:** Features & User Stories → Owner Dashboard, and System Design Preferences (no complex state machine needed for MVP).

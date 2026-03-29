@@ -4,19 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-<!-- Add a new dated section each time you make significant changes. Use ### Added, ### Changed, ### Fixed, ### Removed as needed. Example entry below — delete it when you add your first real entry: -->
+<!-- Add a new dated section each time you make significant changes.
+     Use ### Added, ### Changed, ### Fixed, ### Removed as needed.
+     Example entry below — delete it when you add your first real entry. -->
 
 ---
 
-## 2025-01-15 *(example — replace with your own)*
+## YYYY-MM-DD *(replace with today's date)*
 
 ### Added
-- **Homepage** — Hero section with company photo, tagline, and CTA button
-- **Gallery page** — Lightbox image viewer with 12 product photos
-- **Contact form** — Name, email, message fields with client-side validation
+- **Order form** — Public form collecting name, email, and order details
+- **Owner dashboard** — Password-protected view listing all submitted orders
+- **Mark as handled** — Button on each order to update its status
 
 ### Changed
-- Navigation bar updated to include dropdown menu for Services section
+- Layout updated to work correctly on mobile screens below 400px
 
 ### Fixed
-- Mobile layout broken on screens below 375px — corrected flex wrap in `css/styles.css`
+- Form submission not showing confirmation message in Safari — resolved by replacing `fetch` response handling

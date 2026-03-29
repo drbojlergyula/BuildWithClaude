@@ -20,16 +20,16 @@ Run `/start` once, at the very beginning of a new project, before any code is wr
 ### Phase 0 — Read the template
 
 Before asking anything, silently read and understand all of the following files:
-- `CLAUDE.md` — project guidance structure
+- `CLAUDE.md` — project guidance structure and tool registry
 - `docs/project_spec.md` — product requirements and engineering template
 - `docs/architecture.md` — system design template
 - `docs/brainstorm.md` — ideation scratchpad template
 - `docs/project_status.md` — milestone tracking template
 - `docs/changelog.md` — version history template
-- `.claude/agents/seo-reviewer.md` — example agent
-- `.claude/commands/add-project.md` — example command
-- `.claude/skills/content-check/SKILL.md` — example skill
-- `.claude/skills/pre-launch-checklist/SKILL.md` — example skill
+- `.claude/agents/spec-reviewer.md` — example agent
+- `.claude/commands/new-feature.md` — example command
+- `.claude/commands/update-docs-and-commit.md` — example command
+- `.claude/skills/doc-sync-check/SKILL.md` — example skill
 
 You now understand the full shape of what needs to be filled in. Keep this in mind throughout the interview.
 
@@ -167,17 +167,18 @@ After writing all files, tell the user what was updated and what they should rev
 
 ### Phase 6 — Claude tools review
 
-Look at the three example Claude tools and make a recommendation for each:
+Explain that the template includes three types of reusable tools: agents, commands, and skills. Show the user what exists:
 
-- `.claude/agents/seo-reviewer.md` — does an SEO reviewer make sense for this product? If yes, keep and adapt it. If not, recommend deleting it.
-- `.claude/commands/add-project.md` — does an add-project command make sense? If not, suggest what command(s) would be useful instead.
-- `.claude/skills/content-check/SKILL.md` and `.claude/skills/pre-launch-checklist/SKILL.md` — do these apply? If not, suggest alternatives.
+- `.claude/agents/spec-reviewer.md` — reviews the spec before building starts (applies to every project, keep it)
+- `.claude/commands/new-feature.md` — adds a new feature to the spec (applies to every project, keep it)
+- `.claude/commands/update-docs-and-commit.md` — updates docs and commits after completing work (applies to every project, keep it)
+- `.claude/skills/doc-sync-check/SKILL.md` — checks docs are consistent (applies to every project, keep it)
 
-Ask the user:
+Then ask:
 
-> Would you like me to update or replace these tools to match your project now, or come back to that later?
+> Based on your project, are there any other repeatable tasks you can think of that would be useful to automate? For example: adding a new record, running a regular check, publishing content, generating a report?
 
-If they say now, update or rewrite the relevant tool files based on the product.
+If the user identifies something, write a new tool file for it. Briefly explain what type (agent, command, or skill) makes sense and why, then create the file.
 
 ---
 

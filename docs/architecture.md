@@ -1,58 +1,64 @@
 # Architecture
 
 This document describes the high-level system architecture, data flow, and component relationships.
+For what is being built and why, see [Project Spec](docs/project_spec.md).
 
 ## System Overview
 
-<!-- Replace with a description of your app's stack and architecture. Example: -->
+<!-- One paragraph describing the overall structure: what type of app it is, what the main layers are, and how they connect.
+     Example: -->
 
-This is a modern HTML + JavaScript application with a lightweight Node.js backend. The frontend is plain HTML/CSS/JS served as static files; the backend exposes a REST API that the frontend calls via `fetch`.
+This is a web application with a static frontend and a lightweight Node.js backend. The public-facing order form is served as a plain HTML file. The backend handles form submissions, stores orders in a local database, and serves a password-protected owner dashboard.
 
 ## Data Flow
 
-<!-- Replace with your app's actual data flow. Example: -->
+<!-- Describe how data moves through the system from the user's action to the result.
+     Example: -->
 
 ```
-User interacts with the UI
+User fills in the form and clicks Submit
       ↓
-JavaScript handles event and validates input
+JavaScript validates the input on the frontend
       ↓
-fetch() → POST /api/data { payload }
+POST /api/orders { name, email, details }
       ↓
-Server processes request and queries database
+Server validates and saves the order to the database
       ↓
-JSON response returned
+Success response returned
       ↓
-JavaScript updates the DOM with the result
+Confirmation message shown to the user
 ```
 
 ## Component Architecture
 
-<!-- List the key files and folders in your project, grouped by layer. Describe what each does. Example: -->
+<!-- List the key files and folders, grouped by layer. Describe what each one does.
+     Only include layers that exist in your project. Delete sections that don't apply.
+     Example: -->
 
-### Pages
+### Frontend Pages
 
-- `index.html` — Homepage with hero section, featured services, and image gallery
-- `about.html` — Company story, team bios, and office photos
-- `contact.html` — Contact form with validation and Google Maps embed
+- `public/index.html` — Public order form
+- `views/dashboard.html` — Owner dashboard showing all orders
 
-### JavaScript Modules
+### Backend Routes
 
-- `js/main.js` — Page init, mobile nav toggle, smooth scroll
-- `js/gallery.js` — Lightbox image viewer with keyboard navigation
-- `js/contact.js` — Contact form validation and `fetch`-based submission
+- `routes/orders.js` — Receives new order submissions, validates input, writes to database
+- `routes/dashboard.js` — Serves the dashboard view, enforces login
 
-### Styles
+### Data
 
-- `css/styles.css` — Global styles, layout, typography
-- `css/components.css` — Reusable UI components (cards, buttons, forms)
+- `data/orders.db` — SQLite database; one table: `orders` (id, name, email, phone, details, status, created_at)
 
-### Assets
+### Configuration
 
-- `images/` — Optimized photos (hero banner, team headshots, gallery)
+- `server.js` — Express app setup, middleware, route registration
+- `.env.example` — Documents required environment variables (admin password, port)
 
 ### API Layer
 
-<!-- List your backend endpoints if you have a server. Example: -->
+<!-- List backend endpoints if your project has a server. Delete this section if it's a static site with no backend.
+     Example: -->
 
-- `/api/contact` — Accepts form submission and sends notification email
+- `POST /api/orders` — Accepts a new order from the public form
+- `GET /dashboard` — Returns the owner dashboard (requires auth)
+- `POST /dashboard/orders/:id/handle` — Marks an order as handled
