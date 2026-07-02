@@ -1,92 +1,28 @@
-# BuildWithClaude
+<!-- repo-description: Deprecated — this template grew up and moved to BuildWithAI, which includes everything here plus multi-assistant support and plugin installation. -->
 
-A starter template for building software with Claude Code — Anthropic's AI coding assistant. Designed for business owners and non-technical users.
+# BuildWithClaude → moved to BuildWithAI
 
----
+> **⚠️ This template has merged into [BuildWithAI](https://github.com/drbojlergyula/BuildWithAI).**
+>
+> Everything here — the AI team (project-advisor, spec-reviewer, build-verifier, research-analyst), the guided workflows (`/start` through `/go-live`), the docs-as-memory structure — lives on there, actively maintained, with two upgrades:
+>
+> 1. **It still works exactly the same in Claude Code** (nothing was removed — Claude is the best-supported tool there), and *also* works with Codex, GitHub Copilot, Cursor and anything else that reads the open AGENTS.md / Agent Skills standards.
+> 2. **You can install the AI team into an existing project as a plugin** — no template cloning needed:
+>    ```
+>    /plugin marketplace add drbojlergyula/BuildWithAI
+>    /plugin install buildwithai-team@buildwithai
+>    ```
 
-## Quick start
+## What should I do?
 
-**1. Get the tools**
+- **Starting a new project?** Use [BuildWithAI](https://github.com/drbojlergyula/BuildWithAI) as your template. If you only use Claude Code, follow its [gentle start-here guide](https://github.com/drbojlergyula/BuildWithAI/blob/main/docs/start_here_with_claude.md) — same 15-minute experience this repo offered.
+- **Already built a project from this template?** Nothing breaks — your copy is yours and keeps working. To get the newest AI team in your existing project, install the plugin with the two commands above.
 
-- [Git](https://git-scm.com) — saves and versions your project
-- [VS Code](https://code.visualstudio.com) — free code editor
-- Claude Code — install from the VS Code Extensions panel (search "Claude Code")
-- A free account at [github.com](https://github.com)
+## Why the merge?
 
-**2. Copy this template**
+Maintaining two near-identical templates meant every improvement had to be made twice — the exact documentation-drift problem this product exists to solve. One repo, one source of truth, faster improvements.
 
-On the GitHub page, click **"Use this template" → "Create a new repository"**, give it a name, and click Create.
-
-**3. Download to your computer**
-
-Open VS Code, open the Terminal (**View → Terminal**), and run:
-
-```
-git clone https://github.com/YOUR-USERNAME/YOUR-PROJECT-NAME.git
-```
-
-Then open the downloaded folder in VS Code (**File → Open Folder**).
-
-**4. Run /start**
-
-Open Claude Code in VS Code and type:
-
-```
-/start
-```
-
-Claude will interview you about what you want to build and fill in all the project documents automatically. The whole thing takes about 5–10 minutes.
-
-**5. Start building**
-
-Once `/start` is done, give Claude plain-English instructions to start building:
-
-> "Build the order form described in the project spec."
-> "Add a login page for the owner dashboard."
+The full toolkit this repo pioneered (last updated July 2026, in the Agent Skills / subagents formats) remains in this repository's files for reference, frozen as of the merge.
 
 ---
-
-## How to work day to day
-
-Once your project is set up, the rhythm is simple:
-
-| When | What to do |
-|---|---|
-| Adding a new feature | Type `/new-feature` — Claude will ask what it does and add it to the spec |
-| After finishing something | Type `/update-docs-and-commit` — Claude updates the docs and saves your progress |
-| Feeling stuck or unsure | Ask Claude to "run the project-advisor agent" — it reviews everything and tells you what to focus on |
-| Spec feels incomplete | Ask Claude to "run the spec-reviewer agent" — it checks for gaps before you build |
-| Docs feel out of sync | Ask Claude to "run the doc-sync-check skill" — it finds inconsistencies and placeholders |
-
----
-
-## What's in this template?
-
-```
-BuildWithClaude/
-├── CLAUDE.md                          ← Instructions Claude reads every session
-├── docs/
-│   ├── project_spec.md                ← What you are building and why
-│   ├── architecture.md                ← How the project is structured
-│   ├── brainstorm.md                  ← Scratchpad for ideas
-│   ├── project_status.md              ← Progress and milestones
-│   └── changelog.md                   ← History of changes
-└── .claude/
-    ├── agents/
-    │   ├── project-advisor.md         ← Reviews the whole project for blind spots
-    │   └── spec-reviewer.md           ← Checks the spec is complete before building
-    ├── commands/
-    │   ├── start.md                   ← /start — sets up a new project from scratch
-    │   ├── new-feature.md             ← /new-feature — adds a feature to the spec
-    │   └── update-docs-and-commit.md  ← /update-docs-and-commit — saves progress
-    └── skills/
-        └── doc-sync-check/            ← Checks all docs are consistent
-```
-
-All files are pre-filled with a working example. `/start` replaces everything with your actual project.
-
----
-
-## Questions or issues?
-
-Describe what you expected to happen and what happened instead — Claude can diagnose and fix most problems directly.
+*Built to solve the bus-factor problem. One prompt: `/put-me-in-context` — now at [BuildWithAI](https://github.com/drbojlergyula/BuildWithAI).*
