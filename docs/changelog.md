@@ -10,6 +10,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## 2026-07-02 — Deprecated: merged into BuildWithAI *(later the same day)*
+
+### Changed
+- **This template merged into [BuildWithAI](https://github.com/drbojlergyula/BuildWithAI)** — same AI team and workflows, still fully Claude Code-native, plus multi-assistant support and plugin installation. This repo is frozen; see the README for migration notes.
+
+---
+
 ## 2026-07-02 *(template history — replaced by your own entries after /start)*
 
 ### Added
