@@ -1,17 +1,15 @@
-# /start Command
+---
+name: start
+description: Set up a brand-new project from this template. Interviews the user about what they want to build, then fills in every project document and introduces their AI team. Use when the template is still untouched or the user asks to start project setup.
+---
 
-<!-- What is this command?
-     /start is the first thing a user runs when they open this template for a new project.
-     It reads the entire template (docs, Claude tools, CLAUDE.md) to understand the structure,
-     then interviews the user with plain-English questions until it has enough information to
-     fully populate all project files. It replaces the Dream Home Design example content with
-     the user's actual product. -->
+# /start — Project Setup Interview
 
-Guides the user from a blank template to a fully populated project spec through a structured interview.
+Guides the user from a blank template to a fully populated project through a structured, friendly interview. This is the first thing a user runs. Make it feel great.
 
 ## When to use it
 
-Run `/start` once, at the very beginning of a new project, before any code is written.
+Run once, at the very beginning of a new project, before any code is written. If the project docs are already filled in with a real product, say so and suggest `/put-me-in-context` instead.
 
 ---
 
@@ -19,17 +17,15 @@ Run `/start` once, at the very beginning of a new project, before any code is wr
 
 ### Phase 0 — Read the template
 
-Before asking anything, silently read and understand all of the following files:
-- `CLAUDE.md` — project guidance structure and tool registry
-- `docs/project_spec.md` — product requirements and engineering template
+Before asking anything, silently read and understand:
+
+- `CLAUDE.md` — project guidance and tool registry
+- `docs/project_spec.md` — product requirements template
 - `docs/architecture.md` — system design template
 - `docs/brainstorm.md` — ideation scratchpad template
 - `docs/project_status.md` — milestone tracking template
 - `docs/changelog.md` — version history template
-- `.claude/agents/spec-reviewer.md` — example agent
-- `.claude/commands/new-feature.md` — example command
-- `.claude/commands/update-docs-and-commit.md` — example command
-- `.claude/skills/doc-sync-check/SKILL.md` — example skill
+- The skill and agent files in `.claude/skills/` and `.claude/agents/`
 
 You now understand the full shape of what needs to be filled in. Keep this in mind throughout the interview.
 
@@ -98,11 +94,11 @@ Ask:
 
 **If the user has preferences:** ask them to list what they know or want to use, then confirm the choices make sense for the product. Flag any mismatches (e.g. a heavy framework for a simple static site) and suggest alternatives if relevant.
 
-**If the user wants a recommendation:** research and reason through the best stack based on what you now know about the product. Consider:
+**If the user wants a recommendation:** reason through the best stack based on what you now know about the product. Consider:
 - Product type (website, web app, mobile app, API, CLI, data pipeline, etc.)
 - Scale and complexity (prototype vs. production, solo dev vs. team)
 - User's technical background (if known)
-- Ecosystem maturity, hiring pool, hosting options, and cost
+- Ecosystem maturity, hosting options, and cost
 
 Present the recommended stack as a simple table (Layer / Technology / Reason), then ask:
 
@@ -114,10 +110,10 @@ Adjust based on feedback. Confirm the final stack before moving on.
 
 ### Phase 4 — Iteration planning
 
-Explain to the user that you will now break the product into delivery iterations. Then propose a plan:
+Explain that you will now break the product into delivery iterations. Then propose a plan:
 
 **MVP — the smallest version that delivers real value**
-- List only the features that are absolutely necessary to validate the core idea
+- List only the features absolutely necessary to validate the core idea
 - Aim for the shortest possible build time
 - Everything else goes in a later version
 
@@ -138,7 +134,7 @@ Adjust based on feedback. Keep iterating until the user says the plan looks good
 
 ### Phase 5 — Write all project files
 
-Once the user approves the iteration plan, update all project files to reflect the real product. Replace all example content with the user's actual product.
+Once the user approves the iteration plan, update all project files to reflect the real product. Replace all example content.
 
 Update these files in order:
 
@@ -155,30 +151,34 @@ Update these files in order:
 
 3. **`docs/architecture.md`** — describe the system design: components, data flow, how the parts connect. Tailor it to the chosen stack and product type.
 
-4. **`docs/project_status.md`** — set up the milestones matching the iteration plan (MVP, v1.0, v2.0+). Mark all as Not Started.
+4. **`docs/project_status.md`** — set up milestones matching the iteration plan (MVP, v1.0, v2.0+). Mark all as Not Started.
 
 5. **`docs/changelog.md`** — add the first entry: project initialized, date, summary of what was decided.
 
-6. **`CLAUDE.md`** — update the Overview section to describe the real product. The tools section does not need changing — all tools apply to every project.
+6. **The assistant-facing overview files** — update the Overview section of `CLAUDE.md` (and `AGENTS.md` if this repo has one) to describe the real product. The tools sections do not need changing — the AI team applies to every project.
 
 After writing all files, tell the user what was updated and what they should review.
 
 ---
 
-### Phase 6 — Claude tools review
+### Phase 6 — Meet your AI team
 
-Explain that the template includes three types of reusable tools: agents, commands, and skills. Show the user what exists:
+This is the reveal. Introduce the team that now works for the user. Present it warmly and concretely — these are specialists they can call at any time:
 
-- `.claude/agents/spec-reviewer.md` — reviews the spec before building starts (applies to every project, keep it)
-- `.claude/commands/new-feature.md` — adds a new feature to the spec (applies to every project, keep it)
-- `.claude/commands/update-docs-and-commit.md` — updates docs and commits after completing work (applies to every project, keep it)
-- `.claude/skills/doc-sync-check/SKILL.md` — checks docs are consistent (applies to every project, keep it)
+> **Your project comes with an AI team. Here's who works for you:**
+>
+> 🧭 **project-advisor** — your senior advisor. Reviews the whole project, surfaces blind spots, and tells you what to focus on next. It remembers its past advice between sessions.
+> 🔍 **spec-reviewer** — your requirements analyst. Checks the spec for gaps before you build, so problems get caught on paper instead of in code.
+> ✅ **build-verifier** — your QA engineer. After something is built, it independently tests that the feature actually does what the spec says.
+> 🌐 **research-analyst** — your market researcher. Investigates competitors, pricing, technology choices, or anything else on the live web, and files a cited brief.
+>
+> And your shortcut commands: `/new-feature`, `/update-docs-and-commit`, `/put-me-in-context`, `/doc-sync-check`, `/fix-bug`, and `/go-live` when you're ready to launch.
 
 Then ask:
 
-> Based on your project, are there any other repeatable tasks you can think of that would be useful to automate? For example: adding a new record, running a regular check, publishing content, generating a report?
+> Based on your project, are there any other repeatable tasks worth automating? For example: adding a new record, running a regular check, publishing content, generating a report?
 
-If the user identifies something, write a new tool file for it. Briefly explain what type (agent, command, or skill) makes sense and why, then create the file.
+If the user identifies something, create a new skill or agent for it in `.claude/` — briefly explain which type fits and why, then write the file.
 
 ---
 
@@ -199,9 +199,10 @@ Confirm everything is done. Give the user a clear next step:
 > 4. Describe the first feature you want to work on in plain English and I will build it.
 >
 > **As you go:**
-> - Use `/new-feature` any time you want to add something new to the spec
-> - Use `/update-docs-and-commit` after finishing any piece of work
-> - Ask me to "run the project-advisor agent" any time you want a senior review of where things stand
+> - `/new-feature` any time you want to add something new to the spec
+> - `/update-docs-and-commit` after finishing any piece of work
+> - `/put-me-in-context` whenever you (or a teammate) need instant full context
+> - "run the project-advisor agent" any time you want a senior review of where things stand
 
 ---
 
@@ -213,22 +214,3 @@ Confirm everything is done. Give the user a clear next step:
 - **Make assumptions explicit.** If you fill in a gap, say so. ("I'm assuming this will be a web app — is that right?")
 - **Never stop early.** Do not write the project files until you can answer all the questions in Phase 2 with confidence.
 - **Be encouraging.** This is the start of a project. Keep the tone energetic and collaborative.
-
----
-
-## Example opening
-
-```
-User runs: /start
-
-Claude says:
-  Welcome! I'm going to help you set up your project from scratch.
-  I'll ask you a few questions about what you want to build, then
-  I'll fill in all the project files — spec, architecture, milestones,
-  and more — so you're ready to start building straight away.
-
-  Let's begin with the most important question:
-
-  What would you like to build?
-  Describe it however feels natural — even a rough idea is a great start.
-```
